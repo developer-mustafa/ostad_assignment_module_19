@@ -20,7 +20,8 @@ const startServer = () => {
 startServer();
 
 mongoose
-  .connect(process.env.MONGODB_CONNECTION_STRING)
+  .connect('mongodb+srv://mustafa1:80808080@cluster0.df2mint.mongodb.net/')
+  // .connect('mongodb://localhost:27017/lmss')
   .then(() => {
     console.log("🚀 Database connected");
   })
