@@ -37,11 +37,17 @@ mongoose
 
   app.use(express.static('../dist'));
 
-  // Add React Front End Routing
-  app.get('*',function (req,res) {
-      res.sendFile(path.resolve('../dist'))
-  })
-  
+  // app.use(express.static(path.join(__dirname, 'dist')));
 
+  // // Add React Front End Routing
+  // app.get('*',function (req,res) {
+  //     res.sendFile(path.resolve('../dist'))
+  // })
+  
+  app.get('*', (req, res) => {
+    // Serve the React app from the 'dist' folder
+    res.sendFile(path.join(__dirname, '..', 'dist', 'index.html')); 
+  });
+  
 
 export default app;
