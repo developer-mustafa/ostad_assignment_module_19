@@ -23,8 +23,8 @@ const startServer = () => {
 startServer();
 
 mongoose
-  // .connect('mongodb+srv://mustafa1:80808080@cluster0.df2mint.mongodb.net/')
-  .connect('mongodb://localhost:27017/lmss')
+  .connect('mongodb+srv://mustafa1:80808080@cluster0.df2mint.mongodb.net/')
+  // .connect('mongodb://localhost:27017/lmss')
   .then(() => {
     console.log("🚀 Database connected");
   })
@@ -35,12 +35,12 @@ mongoose
 
 
 
-  // app.use(express.static('dist'));
+  app.use(express.static('../dist'));
 
-  // // Add React Front End Routing
-  // app.get('*',function (req,res) {
-  //     res.sendFile(path.resolve('dist'))
-  // })
+  // Add React Front End Routing
+  app.get('*',function (req,res) {
+      res.sendFile(path.resolve('../dist'))
+  })
   
 
 

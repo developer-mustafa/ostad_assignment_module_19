@@ -12,7 +12,7 @@ const Sidebar = () => {
       </div>
 
       <div className="menu mt-10 container">
-        <p className="text-text font-normal">MENU</p>
+        <p className="text-text font-bold">MENU</p>
 
         <ul className="mt-6">
           <NavLink to="/create-food" className="sidebar-btn">
