@@ -1,7 +1,7 @@
 Important links to follow: 👇👇
 
-🚀 Client Live: https://food-crud-1-client.vercel.app/<br>
-🚀 Server Live: https://food-crud-1-server.vercel.app/<br>
+🚀 Client Live: https://food-crud-scafold.vercel.app/<br>
+
 
 ----------------------------------------------------------------
 
