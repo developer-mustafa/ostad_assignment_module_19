@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import path from "path";
 
+
 dotenv.config();
 
 const app = express();
@@ -12,7 +13,7 @@ const PORT = 9100;
 app.use(express.json());
 app.use(cors());
 
-
+// const __dirname = path.resolve(); // Get current directory path
 
 const startServer = () => {
   app.listen(PORT, () => {
@@ -34,20 +35,12 @@ mongoose
 
 
 
+// Serve static files from the 'dist' directory
+app.use(express.static(path.join('../', 'dist')));
 
-  app.use(express.static('../dist'));
-
-  // app.use(express.static(path.join(__dirname, 'dist')));
-
-  // // Add React Front End Routing
-  // app.get('*',function (req,res) {
-  //     res.sendFile(path.resolve('../dist'))
-  // })
-  
-  app.get('*', (req, res) => {
-    // Serve the React app from the 'dist' folder
-    res.sendFile(path.join(__dirname, '..', 'dist', 'index.html')); 
-  });
-  
+// Route for all other requests - serve the React app
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve('../', 'dist'));
+});
 
 export default app;

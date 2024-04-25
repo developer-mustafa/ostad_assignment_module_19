@@ -20,6 +20,7 @@ const AllFood = () => {
         }
       } catch (err) {
         console.error(err);
+        // You can consider displaying a user-friendly error message here
       } finally {
         setLoading(false);
       }
@@ -40,7 +41,7 @@ const AllFood = () => {
         toast.success("Item deleted");
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
@@ -60,26 +61,26 @@ const AllFood = () => {
           </div>
         )}
 
-        {!loading &&
-          (data?.length !== 0 ? (
+        {!loading && (
+          // No need for optional chaining here as empty data is handled
+          data.length !== 0 ? (
             <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {data?.map((item) => {
-                return (
-                  <FoodCard
-                    food={item}
-                    key={item?._id}
-                    onDelete={handleDelete}
-                    onPopup={handlePopup}
-                    isPopup={isPopup}
-                  />
-                );
-              })}
+              {data?.map((item) => (
+                <FoodCard
+                  food={item}
+                  key={item._id}
+                  onDelete={handleDelete}
+                  onPopup={handlePopup}
+                  isPopup={isPopup}
+                />
+              ))}
             </div>
           ) : (
             <div className="mt-6">
               <p>No data found</p>
             </div>
-          ))}
+          )
+        )}
       </div>
     </div>
   );
