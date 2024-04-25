@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:9100/api",
+  baseURL: "https://foodcrudserver-1qt6xwwyp-developermustafas-projects.vercel.app/api",
 });
 
 export default api;
